@@ -48,8 +48,8 @@ class Student
 
  def update
    sql = <<-SQL
-     UPDATE students 
-     SET name = ?, album = ? 
+     UPDATE students
+     SET name = ?, album = ?
      WHERE name = ?
    SQL
 

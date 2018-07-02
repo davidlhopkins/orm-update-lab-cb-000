@@ -38,6 +38,18 @@ class Student
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
  end
 
+ def self.create_table
+   sql = <<-SQL
+   CREATE TABLE IF NOT EXISTS students (
+     id INTEGER PRIMARY KEY,
+     name TEXT,
+     grade TEXT
+   )
+   SQL
+
+   DB[:conn].execute(sql)
+ end
+
  #def update
   # sql = "UPDATE songs SET name = ?, album = ? WHERE name = ?"
   # DB[:conn].execute(sql, self.name, self.album, self.name)
